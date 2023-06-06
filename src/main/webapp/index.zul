@@ -1,0 +1,108 @@
+<zk>
+	<style>
+		.textStyle {
+		font-family: "Times New Roman", serif;
+		font-size: 20px;
+		font-style: bold;
+		color: #333;
+		}
+	</style>
+
+
+	<window title="" border="normal" apply="UserAdmin.Controller">
+
+		<image src="/images/Bp_logo.png" width="10%" style="margin-left:-30px"/>
+		<label value="User Administration" class="textStyle"></label>
+		<listbox id="userListbox" emptyMessage="No users" rows="5">
+			<listhead>
+				<listheader label="Active"/>
+				<listheader label="User Name"/>
+				<listheader label="Name"/>
+				<listheader label="Email"/>
+				<listheader label="Role"/>
+			</listhead>
+
+			<template name="model">
+				<listitem>
+					<listcell>
+						<label>Active</label>
+						<checkbox checked="${each.active}" />
+					</listcell>
+					<listcell label="${each.userName}"/>
+					<listcell label="${each.name}"/>
+					<listcell label="${each.email}"/>
+
+					<listcell>
+						<combobox selectedItem="@bind(selectedItem)">
+							<comboitem label="Administration" value="option 1"/>
+							<comboitem label="CPU User" value="option2"/>
+							<comboitem label="Data Steward" value="option3"/>
+						</combobox>
+					</listcell>
+
+				</listitem>
+			</template>
+		</listbox>
+
+
+
+
+
+		<hlayout style="margin-top:20px" width="100%">
+			<vlayout hflex="1">
+				<grid>
+					<rows>
+
+						<row>
+							<cell sclass="row-title">Active:
+								<checkbox />
+							</cell>
+						</row>
+
+						<row>
+							<cell sclass="row-title">User name:</cell>
+							<cell>
+								<textbox id="userNameLabel"/>
+							</cell>
+						</row>
+
+						<row>
+							<cell sclass="row-title">Name:</cell>
+							<cell>
+								<textbox id="nameLabel"/>
+							</cell>
+
+							<cell>Surname</cell>
+							<textbox></textbox>
+						</row>
+
+						<row>
+							<cell sclass="row-title">Email:</cell>
+							<cell>
+								<textbox id="emailLabel"/>
+							</cell>
+						</row>
+
+
+						<row width="90%">
+							<cell sclass="row-title">Role:</cell>
+							<cell>
+								<combobox id="roleLabel"/>
+							</cell>
+
+
+
+
+							<cell width="90%" align="right">
+								<cell > <button label="New"/></cell>
+								<cell><button label="Save"/></cell>
+							</cell>
+
+						</row>
+
+					</rows>
+				</grid>
+			</vlayout>
+		</hlayout>
+	</window>
+</zk>
